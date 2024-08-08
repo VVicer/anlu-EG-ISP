@@ -2,7 +2,7 @@
 基于安路开发板的bayer视频简单处理
 
 ## 准备工作
-pycharm2020，TD，安路开发板EG4S20BG256，<br>
+pycharm2020，TD，安路开发板EG4S20BG256，安路部分数据手册<br>
 处理的二进制高清视频太大，这里放一个百度网盘链接：https://pan.baidu.com/s/1oOa7B4wfUinSO2khUvy8-Q?pwd=matr 提取码：matr
 
 ## start
@@ -32,6 +32,13 @@ pycharm2020，TD，安路开发板EG4S20BG256，<br>
 图四 框架草图<br>
 </p>
 
+**注意：** <br>
+代码里面有的部分是IP核，是vhd的代码，比如HDMI显示部分（当然TMDS编码这些自己去写不是很难，可以不用IP核）,还有一些FIFO，这个要自己去用TD的软件，根据安路的操作指导去做的,自己适当改一下，如下图：<br>
+<p align="center">
+<img src="images/fifo.png" width="500" height="300"><br>
+图五 TD中的fifo ip核<br>
+</p>
+
 ## 数据读取部分
 
 这个SD卡的读取程序用的是野火通信的例程，具体的程序大家可以去网上搜索相关的代码。比较简单，就是一个简单的SPI程序，按照SD卡要求的时序完成对应代码的编写。分别是不同的命令初始化程序，对应写入的相关命令，主要是进行SD卡的一个读功能。
@@ -40,7 +47,7 @@ pycharm2020，TD，安路开发板EG4S20BG256，<br>
 这里进行一个简单的说明，下图是SDRAM的一个主要的管脚
  <p align="center">
 <img src="images/SDRAM_interface.png" width="500" height="350"><br>
-图五 SDRAM基本引脚<br>
+图六 SDRAM基本引脚<br>
 </p>
 稍微解释一下几个信号：<br>
 (1)CKE信号：屏蔽系统时钟信号，冻结当前所有操作<br>
@@ -80,7 +87,7 @@ SDRAM一般每过64ms需要对数据进行刷新，等待trc；自动刷新一�
 从时序图来看，自动刷新模块流程如下,要刷新两次：
   <p align="center">
 <img src="images/ref_time.png" width="500" height="500"><br>
-图六 自刷新时序<br>
+图七 自刷新时序<br>
 </p>
 SDRAM在125M时钟下，这个时候4096行，刷新时间15.625us，计算计数；<br>
 (1)写入预充电命令，A10设置为高电平，对所有L-Bank进行预充电；<br>
