@@ -17,13 +17,13 @@ pycharm2020，TD，安路开发板EG4S20BG256，<br>
 - 如果资源足够，建议采用帧间压缩和帧内压缩，针对这个视频大部分没有变化的场景，这样能直接放在SDRAM里面。
 - ISP部分再加一些算法就更好了，比如YCrCb域的转换等等。
 
- <p align="center">
-    <img src="images/未处理.png" alt="Logo" width="500" height="480">
-图一：最原始的视频结果
- 
-图二 python软件仿真处理后效果
- 
-图三 FPGA处理效果
+<p align="center">
+<img src="images/raw.jpg" width="500" height="350"><br>
+图一：最原始的视频结果<br>
+<img src="images/python_pro.jpg" width="500" height="350"><br>
+图二 python软件仿真处理后效果<br>
+<img src="images/fpga_pro.jpg" width="500" height="350"><br>
+图三 FPGA处理效果<br>
 </p>
 
 使用的开发板是安路EGS420系列开发板，上面有EM638325系列的SDRAM，具体的操作方法可以去查对应SDRAM的芯片数据手册，开发工具使用安路的开发工具，名字叫做TD，下面是整个的一个基本框图。
