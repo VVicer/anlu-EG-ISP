@@ -2,7 +2,7 @@
 基于安路开发板的bayer视频简单处理
 
 ## 准备工作
-pycharm2020，TD，安路开发板EG4S20BG256，
+pycharm2020，TD，安路开发板EG4S20BG256，<br>
 处理的二进制高清视频太大，这里放一个百度网盘链接：https://pan.baidu.com/s/1oOa7B4wfUinSO2khUvy8-Q?pwd=matr 提取码：matr
 
 ## start
@@ -18,6 +18,7 @@ pycharm2020，TD，安路开发板EG4S20BG256，
 - ISP部分再加一些算法就更好了，比如YCrCb域的转换等等。
 
  <p align="center">
+    <img src="images/未处理.png" alt="Logo" width="500" height="480">
 图一：最原始的视频结果
  
 图二 python软件仿真处理后效果
